@@ -1,0 +1,203 @@
+ROUTER 2
+==========================================
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+cisco 2811 (MPC860) processor (revision 0x200) with 60416K/5120K bytes of memory
+Processor board ID JAD05190MTZ (4292891495)
+M860 processor: part number 0, mask 49
+4 FastEthernet/IEEE 802.3 interface(s)
+239K bytes of non-volatile configuration memory.
+62720K bytes of  ATA CompactFlash (Read/Write)
+Cisco IOS Software, 2800 Software (C2800NM-ADVIPSERVICESK9-M), Version 12.4(15)T1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2007 by Cisco Systems, Inc.
+Compiled Wed 18-Jul-07 06:21 by pt_rel_team
+
+
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: no
+
+
+Press RETURN to get started!
+
+
+
+Router>
+Router>
+Router>
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#int fa0/1
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#no shu
+Router(config-if)#no shutdown 
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+Router(config-if)#
+Router(config-if)#ip add
+Router(config-if)#ip address 192.168.10.6 255.255.255.252
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#ping 192.168.10.5 255.255.255.252
+                ^
+% Invalid input detected at '^' marker.
+	
+Router(config)#do ping 192.168.10.5 255.255.255.252
+ping 192.168.10.5 255.255.255.252
+                  ^
+% Invalid input detected at '^' marker.
+	
+Router(config)#do ping 192.168.10.5
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.10.5, timeout is 2 seconds:
+.!!!!
+Success rate is 80 percent (4/5), round-trip min/avg/max = 0/0/0 ms
+
+Router(config)# int fa1/0
+Router(config-if)#no shu
+Router(config-if)#no shutdown 
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet1/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0, changed state to up
+
+Router(config-if)#
+Router(config-if)#ip ad
+Router(config-if)#ip address 192.168.2.1 255.255.255.0
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#int fa0/0
+Router(config-if)#no sh
+Router(config-if)#no shutdown 
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#ip ad
+Router(config-if)#ip address 192.168.10.2 255.255.255.252
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+
+
+
+
+
+
+
+
+Router con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Router>
+Router>
+Router>
+Router>en 
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router 
+Router(config)#router ?
+  bgp    Border Gateway Protocol (BGP)
+  eigrp  Enhanced Interior Gateway Routing Protocol (EIGRP)
+  ospf   Open Shortest Path First (OSPF)
+  rip    Routing Information Protocol (RIP)
+Router(config)#router rip
+Router(config-router)#net
+Router(config-router)#network 192.168.10.4
+Router(config-router)#network 192.168.2.0
+Router(config-router)#network 192.168.10.0
+Router(config-router)#exit
+Router(config)#exit
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+R    10.0.0.0/8 [120/1] via 192.168.10.5, 00:00:22, FastEthernet0/1
+                [120/1] via 192.168.10.1, 00:00:09, FastEthernet0/0
+R    192.168.1.0/24 [120/1] via 192.168.10.1, 00:00:09, FastEthernet0/0
+C    192.168.2.0/24 is directly connected, FastEthernet1/0
+R    192.168.3.0/24 [120/1] via 192.168.10.5, 00:00:22, FastEthernet0/1
+     192.168.10.0/30 is subnetted, 2 subnets
+C       192.168.10.0 is directly connected, FastEthernet0/0
+C       192.168.10.4 is directly connected, FastEthernet0/1
+
+Router#
+Router#
+Router#show ip in
+Router#show ip int
+Router#show ip interface br
+Router#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol 
+FastEthernet0/0        192.168.10.2    YES manual up                    up 
+FastEthernet0/1        192.168.10.6    YES manual up                    up 
+FastEthernet1/0        192.168.2.1     YES manual up                    up 
+FastEthernet1/1        unassigned      YES unset  administratively down down 
+Vlan1                  unassigned      YES unset  administratively down down
+Router#
+Router#
+Router#wri
+Router#write me
+Router#write memory 
+Building configuration...
+[OK]
+Router#
+Router#
+Router#

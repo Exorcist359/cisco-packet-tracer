@@ -1,0 +1,206 @@
+ROUTER 3
+================================
+
+  hostname           Set system's network name
+  interface          Select an interface to configure
+  ip                 Global IP configuration subcommands
+  ipv6               Global IPv6 configuration commands
+  key                Key management
+  line               Configure a terminal line
+  lldp               Global LLDP configuration subcommands
+  logging            Modify message logging facilities
+  login              Enable secure login checking
+  mac-address-table  Configure the MAC address table
+  no                 Negate a command or set its defaults
+  ntp                Configure NTP
+
+Router(config)#ip ?
+  access-list       Named access-list
+  cef               Cisco Express Forwarding
+  default-gateway   Specify default gateway (if not routing IP)
+  default-network   Flags networks as candidates for default routes
+  dhcp              Configure DHCP server and relay parameters
+  domain            IP DNS Resolver
+  domain-lookup     Enable IP Domain Name System hostname translation
+  domain-name       Define the default domain name
+  flow-export       Specify host/port to send flow statistics
+  forward-protocol  Controls forwarding of physical and directed IP broadcasts
+  ftp               FTP configuration commands
+  host              Add an entry to the ip hostname table
+  inspect           Context-based Access Control Engine
+  ips               Intrusion Prevention System
+  local             Specify local options
+  name-server       Specify address of name server to use
+  nat               NAT configuration commands
+  route             Establish static routes
+  routing           Enable IP routing
+  ssh               Configure ssh options
+  tcp               Global TCP parameters
+Router(config)#ip ro
+Router(config)#ip rou
+Router(config)#ip route ?
+  A.B.C.D  Destination prefix
+Router(config)#ip route 213.234.10.1 ?
+  A.B.C.D  Destination prefix mask
+Router(config)#ip route 213.234.10.1 255.255.255.252
+% Incomplete command.
+Router(config)#ip route 213.234.10.1 255.255.255.252 ?
+  A.B.C.D          Forwarding router's address
+  Ethernet         IEEE 802.3
+  FastEthernet     FastEthernet IEEE 802.3
+  GigabitEthernet  GigabitEthernet IEEE 802.3z
+  Loopback         Loopback interface
+  Null             Null interface
+  Serial           Serial
+  Vlan             Catalyst Vlans
+Router(config)#ip route 0.0.0.0 0.0.0.0 213.234.10.1 ?
+  <1-255>  Distance metric for this route
+  <cr>
+Router(config)#ip route 0.0.0.0 0.0.0.0 213.234.10.1 
+Router(config)#do ping 213.234.20. 2
+ping 213.234.20. 2
+                 ^
+% Invalid input detected at '^' marker.
+	
+Router(config)#do ping 213.234.20.2
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 213.234.20.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 0/0/1 ms
+
+Router(config)#int fa0/0
+Router(config-if)#ip nat in
+Router(config-if)#ip nat inside ?
+  <cr>
+Router(config-if)#ip nat inside 
+Router(config-if)#exit
+Router(config)#int fa0/1
+Router(config-if)#ip nat out
+Router(config-if)#ip nat outside 
+Router(config-if)#exit
+Router(config)#ac
+Router(config)#int fa0/0
+Router(config-if)#?
+  arp                Set arp type (arpa, probe, snap) or timeout
+  bandwidth          Set bandwidth informational parameter
+  cdp                CDP interface subcommands
+  channel-group      Add this interface to an Etherchannel group
+  crypto             Encryption/Decryption commands
+  custom-queue-list  Assign a custom queue list to an interface
+  delay              Specify interface throughput delay
+  description        Interface specific description
+  duplex             Configure duplex operation.
+  exit               Exit from interface configuration mode
+  fair-queue         Enable Fair Queuing on an Interface
+  hold-queue         Set hold queue depth
+  ip                 Interface Internet Protocol config commands
+  ipv6               IPv6 interface subcommands
+  lldp               LLDP interface subcommands
+  mac-address        Manually set interface MAC address
+  mtu                Set the interface Maximum Transmission Unit (MTU)
+  no                 Negate a command or set its defaults
+  pppoe              pppoe interface subcommands
+  priority-group     Assign a priority group to an interface
+  service-policy     Configure QoS Service Policy
+  shutdown           Shutdown the selected interface
+
+Router(config-if)#ip na
+Router(config-if)#ip nat ?
+  inside   Inside interface for address translation
+  outside  Outside interface for address translation
+Router(config-if)#ip nat no ?
+% Unrecognized command
+Router(config-if)#no ip nat ins
+Router(config-if)#no ip nat inside 
+Router(config-if)#exit
+Router(config)#int fa0/2
+%Invalid interface type and number
+Router(config)#int fa0/0.2
+Router(config-subif)#ip nat ins
+Router(config-subif)#ip nat inside 
+Router(config-subif)#exit
+Router(config)#int fa0/0.3
+Router(config-subif)#ip nat
+Router(config-subif)#ip nat ins
+Router(config-subif)#ip nat inside 
+Router(config-subif)#exit
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#ip ac
+Router(config)#ip access-list s
+Router(config)#ip access-list standard NAT
+Router(config-std-nacl)#pr
+Router(config-std-nacl)#pe
+Router(config-std-nacl)#permit 192.168.2.0 0.0.0.255
+Router(config-std-nacl)#per
+Router(config-std-nacl)#permit 192.168.3.0 0.0.0.255
+Router(config-std-nacl)#
+Router(config-std-nacl)#
+Router(config-std-nacl)#exit
+Router(config)#ip nat ins
+Router(config)#ip nat inside so
+Router(config)#ip nat inside source ls
+Router(config)#ip nat inside source li
+Router(config)#ip nat inside source list NAT in
+Router(config)#ip nat inside source list NAT interface fa0/1 
+Router(config)#ip nat inside source list NAT interface fa0/1 overload 
+Router(config)#
+Router(config)#
+Router(config)#
+Router(config)#exit
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#ip nat in
+Router(config)#ip nat inside sou
+Router(config)#ip nat inside source st
+Router(config)#ip nat inside source static tcp 192.168.3.2 80 213.234.10.2 80
+Router(config)#exit
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#sho
+Router#show ip rou
+Router#show ip route 
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 213.234.10.1 to network 0.0.0.0
+
+C    192.168.2.0/24 is directly connected, FastEthernet0/0.2
+C    192.168.3.0/24 is directly connected, FastEthernet0/0.3
+     213.234.10.0/30 is subnetted, 1 subnets
+C       213.234.10.0 is directly connected, FastEthernet0/1
+S*   0.0.0.0/0 [1/0] via 213.234.10.1
+
+Router#show ip in
+Router#show ip in
+Router#show ip int
+Router#show ip interface b
+Router#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol 
+FastEthernet0/0        unassigned      YES unset  up                    up 
+FastEthernet0/0.2      192.168.2.1     YES manual up                    up 
+FastEthernet0/0.3      192.168.3.1     YES manual up                    up 
+FastEthernet0/1        213.234.10.2    YES manual up                    up 
+Vlan1                  unassigned      YES unset  administratively down down
+Router#wr
+Router#write me
+Building configuration...
+[OK]
+Router#
